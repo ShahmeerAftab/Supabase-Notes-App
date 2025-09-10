@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Auth Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="min-h-screen bg-gradient-to-b from-slate-900 via-slate-950 to-black text-slate-100 antialiased"
+  >
+    <header class="relative w-full px-4 pt-8">
+      <div
+        class="max-w-3xl mx-auto flex flex-col sm:flex-row items-start sm:items-center gap-4"
+      >
+        <div class="flex-1">
+          <h1
+            class="text-3xl sm:text-4xl font-bold tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-400 bg-clip-text text-transparent"
+          >
+            Supabase Notes
+          </h1>
+          <p class="mt-2 text-slate-400 text-sm sm:text-base">
+            Simple, fast, and secure notes with Supabase.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Auth Section -->
+    <main class="px-4 pb-16">
+      <div class="mx-auto mt-8 max-w-3xl grid gap-6">
+        <section
+          class="rounded-2xl border border-slate-800/60 bg-slate-900/60 backdrop-blur p-5 sm:p-6"
+        >
+          <div
+            class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+          >
+            <div class="flex-1">
+              <h2 class="text-lg sm:text-xl font-medium text-emerald-300">
+                Login or Create an account
+              </h2>
+              <p class="mt-1 text-sm text-slate-400">
+                Use email and password to continue.
+              </p>
+            </div>
+          </div>
+
+          <!-- Inputs -->
+          <div class="mt-4 grid gap-4 sm:grid-cols-2">
+            <div class="grid gap-2">
+              <label for="email" class="text-sm text-slate-300">Email</label>
+              <input
+                id="email"
+                type="email"
+                placeholder="you@example.com"
+                class="w-full rounded-xl border border-slate-700 bg-slate-800/60 px-3 py-2 text-slate-100 placeholder-slate-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-700/40 outline-none"
+              />
+            </div>
+            <div class="grid gap-2">
+              <label for="password" class="text-sm text-slate-300"
+                >Password</label
+              >
+              <input
+                id="password"
+                type="password"
+                placeholder="••••••••"
+                class="w-full rounded-xl border border-slate-700 bg-slate-800/60 px-3 py-2 text-slate-100 placeholder-slate-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-700/40 outline-none"
+              />
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="mt-4 flex flex-col sm:flex-row gap-3">
+            <button
+              id="login"
+              class="inline-flex items-center justify-center rounded-xl bg-gradient-to-b from-emerald-500 to-emerald-600 px-4 py-2 text-sm font-medium text-emerald-50 shadow-lg shadow-emerald-600/20 ring-1 ring-inset ring-emerald-400/30 hover:from-emerald-400 hover:to-emerald-600"
+            >
+              Login
+            </button>
+            <button
+              id="signup"
+              href="signup.html"
+              class="inline-flex items-center justify-center rounded-xl border border-slate-700 bg-slate-800/60 px-4 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700/60"
+            >
+              Sign Up
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="https://unpkg.com/@supabase/supabase-js@2" defer></script>
+    <!--  app.js -->
+    <script src="login.js" defer></script>
+  </body>
+</html>

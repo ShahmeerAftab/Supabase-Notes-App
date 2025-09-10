@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Notes App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="min-h-screen bg-gradient-to-b from-slate-900 via-slate-950 to-black text-slate-100 antialiased"
+  >
+    <!-- Wrapper -->
+    <div class="max-w-3xl mx-auto px-4">
+      <!-- Header -->
+      <header class="relative w-full pt-8">
+        <div
+          class="flex flex-col sm:flex-row items-start sm:items-center gap-4"
+        >
+          <div class="flex-1">
+            <h1
+              class="text-3xl sm:text-4xl tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-400 bg-clip-text text-transparent"
+            >
+              Supabase Notes
+            </h1>
+            <p class="mt-2 text-slate-400 text-sm sm:text-base">
+              Simple, fast, and secure notes with Supabase.
+            </p>
+            <p
+              id="userEmail"
+              class="text-md font-bold text-green-200 mt-1 pl-[80px]"
+            ></p>
+          </div>
+        </div>
+
+        <!-- Logout button -->
+        <button
+          id="logout"
+          class="absolute top-4 right-4 shrink-0 inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-800/60 px-3 py-1.5 text-sm text-slate-200 hover:bg-slate-700/60 transition"
+        >
+          Logout
+        </button>
+      </header>
+
+      <!-- Main Auth Section -->
+      <main class="pb-16">
+        <div class="mt-8 grid gap-6">
+          <section
+            class="rounded-2xl border border-slate-800/60 bg-slate-900/60 backdrop-blur p-5 sm:p-6"
+          >
+            <!-- Heading + Search -->
+            <div
+              class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
+            >
+              <!-- Left side Heading -->
+              <h1 class="text-xl font-bold text-emerald-300">My Notes</h1>
+
+              <!-- Right side Search -->
+              <input
+              id="searchInput"
+                type="text"
+                placeholder="Search notes..."
+                class="w-full sm:w-60 border border-gray-100 rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-emerald-300 bg-slate-900/60 backdrop-blur"
+              />
+            </div>
+
+            <!-- Inputs -->
+            <div class="mt-4 grid gap-4">
+              <!-- Title Input -->
+              <input
+                id="title"
+                type="text"
+                placeholder="Note title"
+                class="w-full rounded-xl border border-slate-700 bg-slate-800/60 px-3 py-2 text-slate-100 placeholder-slate-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-700/40 outline-none"
+              />
+
+              <!-- Notes Textarea -->
+              <textarea
+                id="notesBox"
+                placeholder="Write your note..."
+                rows="5"
+                class="w-full rounded-xl border border-slate-700 bg-slate-800/60 px-3 py-2 text-slate-100 placeholder-slate-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-700/40 outline-none"
+              ></textarea>
+            </div>
+
+            <!-- Buttons -->
+            <div class="mt-4 flex justify-end">
+              <button
+                id="addBtn"
+                class="inline-flex items-center justify-center rounded-xl bg-sky-400 px-4 py-2 text-sm font-medium text-emerald-50 shadow-lg shadow-emerald-600/20 ring-1 ring-inset ring-emerald-400/30 hover:from-emerald-400 hover:to-emerald-600"
+              >
+                Add Note
+              </button>
+            </div>
+
+            <!-- Notes Container -->
+
+            <div id="notesContainer" class="grid grid-cols-1 gap-4 w-full"></div>
+
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/@supabase/supabase-js@2" defer></script>
+    <script src="notes.js" defer></script>
+  </body>
+</html>
