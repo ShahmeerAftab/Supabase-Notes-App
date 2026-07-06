@@ -1,9 +1,8 @@
 // Supabase Initialization
-const supabaseUrl = "https://mktfagwltkjjqteovbjb.supabase.co";
-const supabaseKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1rdGZhZ3dsdGtqanF0ZW92YmpiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYwNDg0MjAsImV4cCI6MjA3MTYyNDQyMH0.BOaG8nCpzYpZAojZKGWkN1zc4Q4cU1zfcnEpzGVGlko";
-const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-console.log(supabase);
+const supabaseUrl = "https://nmfxosqarpneiurszssp.supabase.co";
+const supabaseKey = "sb_publishable_9V4LJRezy6-Z9cKEzy_oyg_ARn7aq0N";
+const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
+console.log(supabaseClient);
 
 // Global Variable For Edit Functionality
 let editingNoteId = null;
@@ -15,14 +14,14 @@ addNotes.addEventListener("click", async () => {
   const {
     data: { user },
     error: userError,
-  } = await supabase.auth.getUser();
+  } = await supabaseClient.auth.getUser();
 
   if (userError) {
     alert(userError.message);
   }
 
   if (!user) {
-    window.location.href = "login.html";
+    window.location.href = "notes-login.html";
   } else {
     console.log(user.email);
 
@@ -93,10 +92,10 @@ const fetchData = async () => {
   // Get User
   const {
     data: { user },
-  } = await supabase.auth.getUser();
+  } = await supabaseClient.auth.getUser();
 
   if (!user) {
-    window.location.href = "login.html";
+    window.location.href = "notes-login.html";
   }
 
   // Fetch Data
@@ -148,7 +147,7 @@ const renderNotes = (notes) => {
     const deleteBtn = noteE1.querySelector("#deleteBtn");
     console.log(deleteBtn);
     deleteBtn.addEventListener("click", async () => {
-      const { error } = await supabase.from("notes").delete().eq("id", note.id);
+      const { error } = await supabaseClient.from("notes").delete().eq("id", note.id);
       if (error) {
         alert(error.message);
       } else {
@@ -189,7 +188,7 @@ let allNotes = [];
 
 // Fetch Data
 const fetchNotes = async () => {
- const { data: { user } , error: userError } = await supabase.auth.getUser()
+ const { data: { user } , error: userError } = await supabaseClient.auth.getUser()
 
  if (userError) {
   alert(userError.message);
@@ -236,10 +235,10 @@ searchInput.addEventListener("input", (e) => {
 // Logout Functionality
 const logout=document.querySelector("#logout");
 logout.addEventListener("click",async()=>{
-const { error } = await supabase.auth.signOut();
+const { error } = await supabaseClient.auth.signOut();
 if (error) {
   alert(error.message)
 } else {
-  window.location.href="login.html";
+  window.location.href="notes-login.html";
 }
 })

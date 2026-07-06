@@ -1,8 +1,8 @@
 // Supabase Initialization
-const supabaseUrl = "https://mktfagwltkjjqteovbjb.supabase.co";
-const supabaseKey ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1rdGZhZ3dsdGtqanF0ZW92YmpiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYwNDg0MjAsImV4cCI6MjA3MTYyNDQyMH0.BOaG8nCpzYpZAojZKGWkN1zc4Q4cU1zfcnEpzGVGlko";
-const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-console.log(supabase);
+const supabaseUrl = "https://nmfxosqarpneiurszssp.supabase.co";
+const supabaseKey = "sb_publishable_9V4LJRezy6-Z9cKEzy_oyg_ARn7aq0N";
+const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
+console.log(supabaseClient);
 
 const signupBtn=document.querySelector("#signup");
 signupBtn.addEventListener("click",async()=>{
@@ -25,11 +25,11 @@ if (password !== confirmPassword) {
 }
 
 // Supabase Signup
-const { data, error } = await supabase.auth.signUp({
+const { data, error } = await supabaseClient.auth.signUp({
   email,
   password,
    options: {
-    emailRedirectTo: "http://127.0.0.1:5500/login.html"
+    emailRedirectTo: "http://127.0.0.1:5501/notes-login.html"
   }
 })
 
@@ -44,6 +44,6 @@ if (error) {
 // Already Account
 const alreadyAccount=document.querySelector("#alreadyAccount");
 alreadyAccount.addEventListener("click",()=>{
-window.location.href="login.html";
+window.location.href="notes-login.html";
 })
 

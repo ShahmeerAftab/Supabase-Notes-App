@@ -1,8 +1,8 @@
 // Supabase Initialization
-const supabaseUrl = "https://mktfagwltkjjqteovbjb.supabase.co";
-const supabaseKey ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1rdGZhZ3dsdGtqanF0ZW92YmpiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYwNDg0MjAsImV4cCI6MjA3MTYyNDQyMH0.BOaG8nCpzYpZAojZKGWkN1zc4Q4cU1zfcnEpzGVGlko";
-const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-console.log(supabase);
+const supabaseUrl = "https://nmfxosqarpneiurszssp.supabase.co";
+const supabaseKey = "sb_publishable_9V4LJRezy6-Z9cKEzy_oyg_ARn7aq0N";
+const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
+console.log(supabaseClient);
 
 const login=document.querySelector("#login");
 login.addEventListener("click",async()=>{
@@ -20,7 +20,7 @@ login.addEventListener("click",async()=>{
 
     // Supabase Login with Password
 
-const { data, error } = await supabase.auth.signInWithPassword({
+const { data, error } = await supabaseClient.auth.signInWithPassword({
   email,
   password,
 })
